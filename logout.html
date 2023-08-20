@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>education</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            background-color: #333030;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial;
+        }
+
+        .dabba {
+            height: 700px;
+            width: 70vw;
+            border-radius: 20px;
+            position: relative;
+            perspective: 600px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pg::before {
+            background-image: url(https://img.freepik.com/free-vector/successful-purchase-concept-illustration_114360-1003.jpg?size=626&ext=jpg);
+            background-size: cover;
+            content: '';
+            position: absolute;
+            z-index: 5;
+            width: 49.5%;
+            height: 500px;
+            right: 50%;
+            background-color: #C84646;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            transform-origin: center right;
+            transform: rotateY(180deg);
+            transition: 0.9s ease all;
+        }
+
+
+        .sign-up:hover::before {
+            transform: rotateY(0deg);
+        }
+
+        .pg1::before {
+            content: 'Login';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            font-weight: bold;
+            position: absolute;
+            z-index: 5;
+            width: 49.5%;
+            height: 500px;
+            right: 50%;
+            background-color: #C84646;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            transform-origin: center right;
+            transform: rotateY(0deg);
+            transition: 0.9s ease all;
+        }
+
+        .pg1:hover::before {
+            transform: rotateY(180deg);
+        }
+
+
+
+
+        i {
+            color: #DBBDBD;
+        }
+
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+
+
+
+        .log-in {
+            height: 500px;
+            width: 50%;
+            font-size: 15px;
+            border: 5px solid #C84646;
+            border-radius: 20px 0 0 20px;
+            background-color: #151515;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .sign-up {
+            height: 500px;
+            width: 50%;
+            font-size: 15px;
+            border: 5px solid #C84646;
+            border-radius: 0 20px 20px 0;
+            background-color: #151515;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form p input {
+            height: 35px;
+            width: 20vw;
+            font-size: 15px;
+            font-weight: 500;
+            background: #DBBDBD;
+            border-radius: 10px;
+            border: 0;
+            margin: 10px 0;
+            margin-left: 20px;
+            padding: 5px;
+        }
+
+        input::placeholder {
+            color: #333030;
+        }
+
+        .btn-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn {
+            color: white;
+            height: 35px;
+            width: 100px;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: #C84646;
+            border-radius: 10px;
+            border: 0;
+            /* margin-left: 120px; */
+            margin-top: 15px;
+            padding: 5px;
+            box-shadow: 5px 5px 5px blACK;
+        }
+
+        form p input {
+            height: 35px;
+            width: 20vw;
+            font-size: 15px;
+            font-weight: 500;
+            background: #DBBDBD;
+            border-radius: 10px;
+            border: 0;
+            margin: 10px 0;
+            /* margin-left: 20px; */
+            padding: 5px;
+        }
+
+        .btn:hover {
+            outline-offset: 3px;
+            transform: translateY(-10px);
+        }
+
+        p {
+            color: #DBBDBD;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        i .fa-solid {
+            height: 30px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #C84646;
+        }
+
+        .forget {
+            display: flex;
+            justify-content: center;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 18px;
+            margin-right: 20px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .dabba {
+                display: block;
+            }
+
+            .log-in {
+                height: 500px;
+                width: 110%;
+                font-size: 15px;
+                border-radius: 20px 20px 20px 20px;
+                margin-bottom: 50px;
+            }
+
+            .sign-up {
+                height: 500px;
+                width: 110%;
+                font-size: 15px;
+                border-radius: 20px 20px 20px 20px;
+            }
+
+            form p input {
+                height: 35px;
+                width: 60vw;
+                font-size: 15px;
+                font-weight: 500;
+                background: #DBBDBD;
+                border-radius: 10px;
+                border: 0;
+                margin: 10px 0;
+                /* margin-left: 20px; */
+                padding: 5px;
+            }
+
+
+            .pg1::before,
+            .pg::before {
+                visibility: hidden;
+            }
+
+
+            .btn {
+                font-size: 20px;
+                font-weight: bold;
+                border-radius: 10px;
+                /* margin-left: 100px; */
+                margin-top: 15px;
+                padding: 5px;
+                box-shadow: 5px 5px 5px blACK;
+            }
+
+            .btn-bar {
+                display: flex;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .forget {
+                display: flex;
+                justify-content: center;
+                margin-right: 10px;
+            }
+        }
+        #msg,#msg2{
+    color: #61b752;
+    /* margin-top: -40px; */
+    display: block;
+
+}
+    </style>
+
+</head>
+
+<body>
+    <div class="dabba">
+        <div class="log-in pg1 ">
+
+            <form>
+
+                <h1>Login</h1>
+                <p> <input id="email" type="email" name="email" placeholder="Email" required> </p>
+                <p> <input id="password" type="password" name="password" placeholder="Password" required></p>
+
+                <div class="btn-bar">
+                    <button id="login" class="btn" type="button">Log In  </button>
+                </div>
+
+                <div class="forget">
+                    <a href="forget.html">Forget Password?</a>
+                </div>
+                <div>
+                    <p>Don't have any account?<a href="#">SignUp <i class="fa-solid fa-arrow-right"></i> </a></p>
+                </div>
+                <span id="msg" ></span>
+            </form>
+
+     
+        </div>
+
+        <div class="sign-up pg">
+            <form>
+                <h1>SignUp</h1>
+                <p> <input id="username" type="text" name="name" placeholder="Username" required> </p>
+                <p> <input id="Email" type="email" name="email" placeholder="Email" required> </p>
+                <p> <input id="Password" type="password" name="password" placeholder="Password" required></p>
+                <div class="btn-bar">
+                    <button class="btn" id="rejister" type="button">SignUp</button>
+                </div>
+                <br>
+                <span id="msg2" ></span>
+            </form>
+
+        </div>
+    </div>
+
+
+
+
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import { getDatabase, ref, set, update } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,onAuthStateChanged,signOut } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyA4niOMBnRmR29lBb4nvzzsyl4PQueAZC8",
+        authDomain: "auth-e92c3.firebaseapp.com",
+        projectId: "auth-e92c3",
+        storageBucket: "auth-e92c3.appspot.com",
+        messagingSenderId: "316337977121",
+        appId: "1:316337977121:web:ba645f3da9c91e8cf47060"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    document.getElementById('rejister').addEventListener('click', (e) => {
+
+        var email = document.getElementById("Email").value;
+        var password = document.getElementById("Password").value;
+        var uname = document.getElementById("username").value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                set(ref(database, "The user/" + uname), {
+                    Uemail: email,
+                    uname: uname,
+
+                })
+                 var msg=document.getElementById("msg2").innerHTML = "sin-up successfully";
+                 var msg=document.getElementById("msg2").innerHTML = "";
+                // msg.innerHTML = "sin-up successfully"
+                
+            //  alert("reseterde succesaf");
+                // window.location.href="login.html";
+               
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                var msg=document.getElementById("msg2").innerHTML = errorMessage;
+                // alert(errorMessage);
+                // ..
+            });
+          
+
+    });
+
+
+
+    document.getElementById('login').addEventListener('click', (e) => {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var uname = document.getElementById("username").value;
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                const dc = new Date();
+                update(ref(database, "The user/"+uname), {
+                    last_login: dc,
+
+
+                })
+                // var msg=document.getElementById("msg").innerHTML = "Log-in successfully";
+                
+            // alert("loggedin the");
+  window.location.href="login.html";
+                // document.getElementById("a").innerHtml=login.html;
+
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                var msg=document.getElementById("msg").innerHTML =  errorMessage;
+                // alert(errorMessage);
+            });
+            
+
+    });
+    // forget password code using the firebase
+        
+
+   
+
+
+</script>
+
+</html>

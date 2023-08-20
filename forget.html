@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="email" type="email" placeholder="Enter email address">
+
+    <button id="forget" type="button">submit</button>
+    
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import { getDatabase, ref, set, update } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+    import { getAuth,sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyA4niOMBnRmR29lBb4nvzzsyl4PQueAZC8",
+        authDomain: "auth-e92c3.firebaseapp.com",
+        projectId: "auth-e92c3",
+        storageBucket: "auth-e92c3.appspot.com",
+        messagingSenderId: "316337977121",
+        appId: "1:316337977121:web:ba645f3da9c91e8cf47060"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    const user = auth.currentUser;
+    
+
+    
+    document.getElementById('forget').addEventListener('click', (e) => {
+        var email = document.getElementById("email");
+        // var password = document.getElementById("password").value;
+        // var uname = document.getElementById("username").value;
+
+        
+
+// const auth = getAuth();
+sendPasswordResetEmail(auth, email.value)
+  .then(() => {
+    // Password reset email sent!
+    // ..
+    email="";
+    alert("messget sent successfully");
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage);
+    // ..
+  });
+            
+
+    });
+</script>
+
+</html>

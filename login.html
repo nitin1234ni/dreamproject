@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            height: 100vh;
+            width: 100vw;
+
+        }
+
+        .nav {
+            width: 100vw;
+            height: 80px;
+            display: flex;
+            background-color: aqua;
+            justify-content: flex-end;
+
+        }
+
+        .btn {
+            color: white;
+            height: 35px;
+            width: 100px;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: #C84646;
+            border-radius: 10px;
+            border: 0;
+            /* margin-left: 120px; */
+            margin-top: 15px;
+            padding: 5px;
+            box-shadow: 5px 5px 5px blACK;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <li>
+            <button id="logout" class="btn">logout</button>
+        </li>
+    </div>
+
+
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import { getDatabase, } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+    import { getAuth,  onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyA4niOMBnRmR29lBb4nvzzsyl4PQueAZC8",
+        authDomain: "auth-e92c3.firebaseapp.com",
+        projectId: "auth-e92c3",
+        storageBucket: "auth-e92c3.appspot.com",
+        messagingSenderId: "316337977121",
+        appId: "1:316337977121:web:ba645f3da9c91e8cf47060"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    const user = auth.currentUser;
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/auth.user
+            const uid = user.uid;
+            // ...
+        } else {
+            // User is signed out
+            // ...
+        }
+    });
+
+    
+    document.getElementById('logout').addEventListener('click', (e) => {
+        signOut(auth).then(() => {
+            alert("loggedout the");
+            window.location.href="logout.html";
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage);
+           
+        });
+
+    });
+</script>
+
+</html>
